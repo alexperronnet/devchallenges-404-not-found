@@ -1,0 +1,29 @@
+@use '@/styles/abstracts/variables' as var;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var.$font-sans;
+  font-weight: var.$font-normal;
+  color: var.$color-neutral-700;
+  background-color: var.$color-white;
+}
+
+::selection {
+  background-color: var.$color-red;
+  color: var.$color-white;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var.$color-neutral-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var.$color-neutral-300;
+}

@@ -1,0 +1,17 @@
+@mixin container($max-width, $gutter) {
+  max-width: $max-width;
+  width: calc(100% - $gutter * 2);
+  margin-inline: auto;
+}
+
+@mixin srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
