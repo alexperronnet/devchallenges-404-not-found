@@ -9,13 +9,13 @@ export const Router = () => (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Login />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error layout="main" status={404} />} />
       </Route>
       <Route path="app" element={<AppLayout />}>
         <Route index element={<Dashboard />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error layout="app" status={404} />} />
         {notAvailableRoutes.map(naRoute => (
-          <Route key={naRoute} path={naRoute} element={<Error />} />
+          <Route key={naRoute} path={naRoute} element={<Error layout="app" status={500} />} />
         ))}
       </Route>
     </Routes>
