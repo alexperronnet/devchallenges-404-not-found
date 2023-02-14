@@ -1,0 +1,96 @@
+@use '@/styles/abstracts/variables' as var;
+@use '@/styles/abstracts/mixins' as mix;
+
+.header {
+  grid-area: header;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var.$color-neutral-900;
+  z-index: 10;
+}
+
+.logo {
+  height: 2rem;
+  color: var.$color-red;
+}
+
+.menu {
+  height: 2rem;
+  padding: 0;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  color: var.$color-white;
+  border: none;
+  cursor: pointer;
+  transition: color var.$transition;
+}
+
+.menu:hover {
+  color: var.$color-red;
+}
+
+.menuIcon {
+  height: 1.5rem;
+}
+
+.menuLabel {
+  @include mix.srOnly;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var.$color-neutral-800;
+  overflow: hidden;
+  box-shadow: var.$shadow-xl;
+  transition: max-height var.$transition;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.navLink {
+  padding: 0.75rem;
+  color: var.$color-neutral-300;
+  background-color: rgba(var.$color-neutral-900, 0.15);
+  font-size: var.$text-sm;
+  border-radius: var.$rounded-sm;
+  transition: background-color var.$transition;
+}
+
+.navLink:hover {
+  background-color: rgba(var.$color-neutral-900, 0.75);
+}
+
+.navLink[aria-current='page'] {
+  background-color: rgba(var.$color-neutral-900, 0.75);
+}
+
+.logout {
+  margin-block-start: 1rem;
+  padding: 0.75rem;
+  color: var.$color-white;
+  background-color: var.$color-red;
+  font-size: var.$text-sm;
+  border: none;
+  border-radius: var.$rounded-sm;
+  cursor: pointer;
+  transition: background-color var.$transition;
+}
+
+.logout:hover {
+  background-color: darken(var.$color-red, 10%);
+}

@@ -1,0 +1,50 @@
+@use '@/styles/abstracts/variables' as var;
+@use '@/styles/abstracts/mixins' as mix;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2.5rem;
+
+  @media (min-width: var.$bp-xs) {
+    padding-block: 3rem;
+  }
+}
+
+.logo {
+  height: 2.25rem;
+  color: var.$color-red;
+
+  @media (min-width: var.$bp-xs) {
+    height: 2.5rem;
+  }
+}
+
+.login {
+  height: 2.25rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  color: var.$color-red;
+  background-color: rgba(var.$color-red, 0.1);
+  border-radius: var.$rounded-sm;
+  transition: color var.$transition, background-color var.$transition;
+
+  @media (min-width: var.$bp-xs) {
+    height: 2.5rem;
+  }
+}
+
+.login:hover {
+  color: var.$color-white;
+  background-color: var.$color-red;
+}
+
+.loginIcon {
+  height: 1rem;
+}
+
+.loginLabel {
+  @include mix.srOnly;
+}

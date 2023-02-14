@@ -1,0 +1,24 @@
+@use '@/styles/abstracts/variables' as var;
+@use '@/styles/abstracts/mixins' as mix;
+
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto repeat(1, minmax(0, 1fr));
+  grid-template-areas: 'header' 'main';
+
+  @media (min-width: var.$bp-sm) {
+    grid-template-columns: auto repeat(1, minmax(0, 1fr));
+    grid-template-areas: 'header header' 'sidebar main';
+  }
+}
+
+.main {
+  grid-area: main;
+  padding-block: 3rem;
+  @include mix.container(96rem, 2rem);
+
+  @media (min-width: var.$bp-sm) {
+    @include mix.container(96rem, 3rem);
+  }
+}
