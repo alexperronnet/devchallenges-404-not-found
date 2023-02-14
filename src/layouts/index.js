@@ -1,4 +1,5 @@
 export { AppHeader } from '@/layouts/app/header/header'
+export { AppHeaderMob } from '@/layouts/app/header-mob/header-mob'
 export { AppSidebar } from '@/layouts/app/sidebar/sidebar'
 export { AppLayout } from '@/layouts/app/layout/layout'
 

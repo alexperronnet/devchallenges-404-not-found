@@ -1,0 +1,30 @@
+@use '@/styles/abstracts/variables' as var;
+@use '@/styles/abstracts/mixins' as mix;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.5rem;
+  font-size: var.$text-sm;
+
+  @media (min-width: var.$bp-xs) {
+    padding-block: 2rem;
+  }
+}
+
+.source {
+  transition: color var.$transition;
+}
+
+.source:hover {
+  color: var.$color-red;
+}
+
+.sourceIcon {
+  height: 1.5rem;
+}
+
+.sourceLabel {
+  @include mix.srOnly;
+}

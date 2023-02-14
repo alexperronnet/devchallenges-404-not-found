@@ -1,13 +1,18 @@
 import { Outlet } from 'react-router-dom'
-import { AppHeader, AppSidebar } from '@/layouts'
+import { useIsMobile } from '@/hooks'
+import { AppHeader, AppHeaderMob, AppSidebar } from '@/layouts'
 import css from '@/layouts/app/layout/layout.module.scss'
 
-export const AppLayout = () => (
-  <div className={css.layout}>
-    <AppHeader />
-    <AppSidebar />
-    <main className={css.main}>
-      <Outlet />
-    </main>
-  </div>
-)
+export const AppLayout = () => {
+  const { isMobile } = useIsMobile(768)
+
+  return (
+    <div className={css.layout}>
+      {isMobile ? <AppHeaderMob /> : <AppHeader />}
+      {!isMobile && <AppSidebar />}
+      <main className={css.main}>
+        <Outlet />
+      </main>
+    </div>
+  )
+}

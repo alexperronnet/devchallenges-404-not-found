@@ -1,0 +1,10 @@
+@use '@/styles/abstracts/mixins' as mix;
+
+.layout {
+  @include mix.container(48rem, 2rem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}

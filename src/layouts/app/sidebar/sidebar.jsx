@@ -1,3 +1,31 @@
+import { NavLink } from 'react-router-dom'
+import { ReactComponent as IconRunning } from '@/assets/icon-running.svg'
+import { ReactComponent as IconSwimming } from '@/assets/icon-swimming.svg'
+import { ReactComponent as IconBiking } from '@/assets/icon-biking.svg'
+import { ReactComponent as IconDumbbell } from '@/assets/icon-dumbbell.svg'
 import css from '@/layouts/app/sidebar/sidebar.module.scss'
 
-export const AppSidebar = () => <aside className={css.sidebar}>AppSidebar</aside>
+const routes = [
+  { path: 'course', icon: IconRunning },
+  { path: 'natation', icon: IconSwimming },
+  { path: 'cyclisme', icon: IconBiking },
+  { path: 'musculation', icon: IconDumbbell }
+]
+
+export const AppSidebar = () => {
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <aside className={css.sidebar}>
+      <nav className={css.nav}>
+        {routes.map(({ path, icon: Icon }) => (
+          <NavLink className={css.navLink} key={path} to={path} end>
+            <Icon className={css.navLinkIcon} />
+            <span className={css.navLinkLabel}>Redirection vers {path}</span>
+          </NavLink>
+        ))}
+      </nav>
+      <footer className={css.footer}>Copiryght, SportSee {currentYear}</footer>
+    </aside>
+  )
+}
