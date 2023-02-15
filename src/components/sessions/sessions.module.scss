@@ -1,0 +1,18 @@
+@use '@/styles/abstracts/variables' as var;
+
+.sessions {
+  grid-area: ses;
+  position: relative;
+  height: 19rem;
+  background-color: var.$color-red;
+  border-radius: var.$rounded-sm;
+}
+
+.title {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  max-width: 9rem;
+  font-weight: var.$font-medium;
+  color: rgba(var.$color-white, 0.5);
+}

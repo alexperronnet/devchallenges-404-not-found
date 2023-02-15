@@ -1,0 +1,22 @@
+@use '@/styles/abstracts/variables' as var;
+
+.nutrient {
+  background-color: var.$color-neutral-100;
+  border-radius: var.$rounded-sm;
+}
+
+.calorie {
+  grid-area: cal;
+}
+
+.protein {
+  grid-area: pro;
+}
+
+.carbohydrate {
+  grid-area: car;
+}
+
+.lipid {
+  grid-area: lip;
+}
