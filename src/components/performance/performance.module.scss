@@ -6,3 +6,8 @@
   background-color: var.$color-neutral-800;
   border-radius: var.$rounded-sm;
 }
+
+.chart {
+  --grid: #{var.$color-neutral-300};
+  --performance: #{var.$color-red};
+}

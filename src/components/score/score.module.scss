@@ -14,3 +14,11 @@
   left: 1.5rem;
   font-weight: var.$font-medium;
 }
+
+.chart {
+  --progress: #{var.$color-red};
+  --remaining: transparent;
+  --background: #{var.$color-white};
+  --title: #{var.$color-neutral-900};
+  --baseline: #{var.$color-neutral-500};
+}
