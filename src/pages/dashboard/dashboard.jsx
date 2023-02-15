@@ -9,6 +9,7 @@ export const Dashboard = () => (
       if (error) return <ErrorMessage title="Erreur" message="Impossible de charger les données." />
 
       const firstName = data.mainData.userInfos.firstName
+      const nutrients = data.mainData.keyData
 
       return (
         <section className={css.dashboard}>
@@ -18,10 +19,9 @@ export const Dashboard = () => (
             <Sessions />
             <Performance />
             <Score />
-            <Nutrient nutrient="calorie" />
-            <Nutrient nutrient="protein" />
-            <Nutrient nutrient="carbohydrate" />
-            <Nutrient nutrient="lipid" />
+            {nutrients.map((nutrient, index) => (
+              <Nutrient key={index} nutrient={nutrient} />
+            ))}
           </section>
         </section>
       )

@@ -1,6 +1,10 @@
 @use '@/styles/abstracts/variables' as var;
 
 .nutrient {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
   background-color: var.$color-neutral-100;
   border-radius: var.$rounded-sm;
 }
@@ -19,4 +23,57 @@
 
 .lipid {
   grid-area: lip;
+}
+
+.iconWrapper {
+  height: 2.5rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: var.$rounded-sm;
+}
+
+.calorie .iconWrapper {
+  color: var.$color-red;
+  background-color: rgba(var.$color-red, 0.15);
+}
+
+.protein .iconWrapper {
+  color: var.$color-blue;
+  background-color: rgba(var.$color-blue, 0.15);
+}
+
+.carbohydrate .iconWrapper {
+  color: var.$color-yellow;
+  background-color: rgba(var.$color-yellow, 0.15);
+}
+
+.lipid .iconWrapper {
+  color: var.$color-pink;
+  background-color: rgba(var.$color-pink, 0.15);
+}
+
+.icon {
+  height: 1.25rem;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-weight: var.$font-bold;
+  color: var.$color-neutral-900;
+
+  @media (min-width: var.$bp-xs) {
+    font-size: var.$text-lg;
+  }
+}
+
+.description {
+  font-size: var.$text-sm;
+  color: var.$color-neutral-500;
+  text-transform: capitalize;
 }
