@@ -1,0 +1,16 @@
+@use '@/styles/abstracts/variables' as var;
+
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  color: var.$color-red;
+  background-color: rgba(var.$color-red, 0.1);
+  border-radius: var.$rounded-sm;
+}
+
+.title {
+  font-size: var.$text-lg;
+  font-weight: var.$font-bold;
+}

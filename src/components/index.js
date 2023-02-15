@@ -1,3 +1,5 @@
+export { Loader } from '@/components/loader/loader'
+export { ErrorMessage } from '@/components/error-message/error-message'
 export { Hero } from '@/components/hero/hero'
 export { Activity } from '@/components/activity/activity'
 export { Sessions } from '@/components/sessions/sessions'
