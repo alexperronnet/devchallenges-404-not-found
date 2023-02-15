@@ -16,3 +16,19 @@
   font-weight: var.$font-medium;
   color: rgba(var.$color-white, 0.5);
 }
+
+.chart {
+  --legend: #{rgba(var.$color-white, 0.5)};
+  --line: #{var.$color-white};
+  --cursor: #{rgba(var.$color-white, 0.1)};
+
+  font-size: var.$text-sm;
+}
+
+.tooltip {
+  font-size: var.$text-xs;
+  color: var.$color-neutral-700;
+  background-color: var.$color-white;
+  padding: 0.5rem;
+  border-radius: var.$rounded-sm;
+}

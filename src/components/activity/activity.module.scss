@@ -2,6 +2,9 @@
 
 .activity {
   grid-area: act;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   padding: 1.5rem;
   height: 19rem;
   background-color: var.$color-neutral-100;
@@ -44,5 +47,39 @@
 }
 
 .calories::before {
+  background-color: var.$color-red;
+}
+
+.chart {
+  --poids: #{var.$color-red};
+  --calories: #{var.$color-neutral-700};
+  --text: #{var.$color-neutral-400};
+  --line: #{var.$color-neutral-300};
+  --white: #{var.$color-white};
+
+  font-size: var.$text-sm;
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  font-size: var.$text-xs;
+  border-radius: var.$rounded-sm;
+  overflow: hidden;
+  box-shadow: var.$shadow-md;
+}
+
+.tooltipValue {
+  padding: 0.5rem;
+  color: var.$color-white;
+  font-weight: var.$font-bold;
+  text-align: center;
+}
+
+.tooltipValuePoids {
+  background-color: var.$color-neutral-700;
+}
+
+.tooltipValueCalories {
   background-color: var.$color-red;
 }
