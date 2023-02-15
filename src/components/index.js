@@ -1,0 +1,6 @@
+export { Hero } from '@/components/hero/hero'
+export { Activity } from '@/components/activity/activity'
+export { Sessions } from '@/components/sessions/sessions'
+export { Performance } from '@/components/performance/performance'
+export { Score } from '@/components/score/score'
+export { Nutrient } from '@/components/nutrient/nutrient'

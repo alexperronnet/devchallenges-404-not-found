@@ -1,0 +1,8 @@
+@use '@/styles/abstracts/variables' as var;
+
+.performance {
+  grid-area: per;
+  min-height: 19rem;
+  background-color: var.$color-neutral-800;
+  border-radius: var.$rounded-sm;
+}

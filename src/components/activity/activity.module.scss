@@ -1,0 +1,48 @@
+@use '@/styles/abstracts/variables' as var;
+
+.activity {
+  grid-area: act;
+  padding: 1.5rem;
+  height: 19rem;
+  background-color: var.$color-neutral-100;
+  border-radius: var.$rounded-sm;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: var.$text-sm;
+  font-weight: var.$font-medium;
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  font-size: var.$text-xs;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendItem::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var.$rounded-full;
+}
+
+.poids::before {
+  background-color: var.$color-neutral-700;
+}
+
+.calories::before {
+  background-color: var.$color-red;
+}
