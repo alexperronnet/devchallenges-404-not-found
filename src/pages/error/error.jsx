@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import css from '@/pages/error/error.module.scss'
 
 const titles = {
@@ -20,3 +21,8 @@ export const Error = ({ layout, status }) => (
     </Link>
   </section>
 )
+
+Error.propTypes = {
+  layout: PropTypes.oneOf(['main', 'app']).isRequired,
+  status: PropTypes.oneOf([404, 500]).isRequired
+}

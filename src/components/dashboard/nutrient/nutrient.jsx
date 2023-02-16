@@ -2,6 +2,7 @@ import { ReactComponent as IconFire } from '@/assets/icon-fire.svg'
 import { ReactComponent as IconChicken } from '@/assets/icon-chicken.svg'
 import { ReactComponent as IconApple } from '@/assets/icon-apple.svg'
 import { ReactComponent as IconBurger } from '@/assets/icon-burger.svg'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/nutrient/nutrient.module.scss'
 
 export const Nutrient = ({ nutrient }) => (
@@ -20,3 +21,7 @@ export const Nutrient = ({ nutrient }) => (
     </div>
   </article>
 )
+
+Nutrient.propTypes = {
+  nutrient: PropTypes.object.isRequired
+}
