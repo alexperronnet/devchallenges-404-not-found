@@ -13,15 +13,13 @@ export const Performance = ({ performance }) => {
       const margin = sizeRatio(15)
       const radarRadius = sizeRatio(50) - margin
 
-      const scaleRadius = d3
-        .scaleLinear()
-        .domain([0, d3.max(performance, d => d.value)])
-        .range([0, radarRadius])
+      const radiusDomain = [0, d3.max(performance, d => d.value)]
+      const radiusRange = [0, radarRadius]
+      const scaleRadius = d3.scaleLinear().domain(radiusDomain).range(radiusRange)
 
-      const scaleAngle = d3
-        .scaleLinear()
-        .domain([0, performance.length])
-        .range([0, 2 * Math.PI])
+      const angleDomain = [0, performance.length]
+      const angleRange = [0, 2 * Math.PI]
+      const scaleAngle = d3.scaleLinear().domain(angleDomain).range(angleRange)
 
       const levels = 5
       const radarGenerator = Array.from({ length: levels }, (_, index) =>
@@ -38,9 +36,11 @@ export const Performance = ({ performance }) => {
         .outerRadius(d => scaleRadius(d.value))
         .curve(d3.curveCardinalClosed.tension(0.8))
 
+      // Setup SVG
       chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
 
+      // Dray radar
       chartGroup
         .selectAll('path')
         .data(radarGenerator)
@@ -49,9 +49,10 @@ export const Performance = ({ performance }) => {
         .attr('d', d => d(performance))
         .attr('fill', 'none')
         .attr('stroke', 'var(--radar)')
-        .attr('stroke-width', 2)
-        .attr('opacity', (_, index) => (index + 1) * (1 / levels))
+        .attr('stroke-width', sizeRatio(0.5))
+        .attr('stroke-opacity', (_, index) => (index + 1) * (1 / levels))
 
+      // Draw ticks
       chartGroup
         .selectAll('text')
         .data(performance)
@@ -65,12 +66,13 @@ export const Performance = ({ performance }) => {
         .style('font-size', sizeRatio(4.25))
         .text(d => d.kind)
 
+      // Draw performance
       chartGroup
         .append('path')
         .attr('fill', 'var(--performance)')
         .attr('fill-opacity', 0.5)
         .attr('stroke', 'var(--performance)')
-        .attr('stroke-width', 2)
+        .attr('stroke-width', sizeRatio(0.5))
         .transition()
         .duration(1000)
         .attrTween('d', () => {
