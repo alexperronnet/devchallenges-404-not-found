@@ -14,8 +14,8 @@ export const Dashboard = () => (
           <section className={css.analytics}>
             <Activity />
             <Sessions />
-            <Performance />
-            <Score />
+            <Performance performance={data.performance} />
+            <Score score={data.mainData.todayScore} />
             {data.mainData.keyData.map((nutrient, index) => (
               <Nutrient key={index} nutrient={nutrient} />
             ))}

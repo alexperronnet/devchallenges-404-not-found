@@ -17,7 +17,7 @@
 
 .chart {
   --progress: #{var.$color-red};
-  --remaining: transparent;
+  --remaining: #{var.$color-neutral-200};
   --background: #{var.$color-white};
   --title: #{var.$color-neutral-900};
   --baseline: #{var.$color-neutral-500};
