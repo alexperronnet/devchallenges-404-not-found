@@ -1,4 +1,4 @@
-import { Loader, ErrorMessage, Hero, Activity, Sessions, Performance, Score, Nutrient } from '@/components'
+import { Loader, ErrorMessage, Hero, Analytics } from '@/components'
 import { DataConsumer } from '@/context'
 import css from '@/pages/dashboard/dashboard.module.scss'
 
@@ -8,18 +8,12 @@ export const Dashboard = () => (
       if (loading) return <Loader />
       if (error) return <ErrorMessage title="Erreur" message="Impossible de charger les données." />
 
+      const firstName = data.mainData.userInfos.firstName
+
       return (
         <section className={css.dashboard}>
-          <Hero firstName={data.mainData.userInfos.firstName} />
-          <section className={css.analytics}>
-            <Activity />
-            <Sessions />
-            <Performance performance={data.performance} />
-            <Score score={data.mainData.todayScore} />
-            {data.mainData.keyData.map((nutrient, index) => (
-              <Nutrient key={index} nutrient={nutrient} />
-            ))}
-          </section>
+          <Hero firstName={firstName} />
+          <Analytics data={data} />
         </section>
       )
     }}

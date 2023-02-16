@@ -1,6 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
-import css from '@/components/score/score.module.scss'
+import css from '@/components/dashboard/score/score.module.scss'
 
 export const Score = ({ score }) => {
   const [parentReference, parentDimensions] = useDimensions()
@@ -14,11 +14,6 @@ export const Score = ({ score }) => {
       const outerRadius = sizeRatio(50) - margin
       const innerRadius = outerRadius - thickness
 
-      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
-      const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
-
-      chartGroup.append('circle').attr('r', innerRadius).attr('fill', 'var(--background)')
-
       const arcGenerator = amount =>
         d3
           .arc()
@@ -27,6 +22,11 @@ export const Score = ({ score }) => {
           .cornerRadius(thickness / 2)
           .startAngle(0)
           .endAngle(amount * 2 * Math.PI)
+
+      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
+
+      chartGroup.append('circle').attr('r', innerRadius).attr('fill', 'var(--background)')
 
       chartGroup.append('path').attr('fill', 'var(--remaining)').attr('d', arcGenerator(1))
 
@@ -68,9 +68,11 @@ export const Score = ({ score }) => {
   )
 
   return (
-    <article className={css.score} ref={parentReference}>
+    <article className={css.score}>
       <h2 className={css.title}>Score</h2>
-      <svg className={css.chart} ref={chartReference} />
+      <div className={css.chartContainer} ref={parentReference}>
+        <svg className={css.chart} ref={chartReference} />
+      </div>
     </article>
   )
 }

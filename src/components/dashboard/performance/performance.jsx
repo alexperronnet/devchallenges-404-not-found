@@ -1,6 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
-import css from '@/components/performance/performance.module.scss'
+import css from '@/components/dashboard/performance/performance.module.scss'
 
 export const Performance = ({ performance }) => {
   const [parentReference, parentDimensions] = useDimensions()
@@ -11,9 +11,6 @@ export const Performance = ({ performance }) => {
       const sizeRatio = percent => Math.round((percent / 100) * Math.min(width, height))
       const margin = sizeRatio(15)
       const radarRadius = sizeRatio(50) - margin
-
-      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
-      const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
 
       const scaleRadius = d3
         .scaleLinear()
@@ -33,6 +30,15 @@ export const Performance = ({ performance }) => {
           .radius(scaleRadius.range()[1] * (index + 1) * (1 / levels))
           .curve(d3.curveCardinalClosed.tension(0.8))
       )
+
+      const radarAreaGenerator = d3
+        .areaRadial()
+        .angle((_, index) => scaleAngle(index))
+        .outerRadius(d => scaleRadius(d.value))
+        .curve(d3.curveCardinalClosed.tension(0.8))
+
+      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
 
       chartGroup
         .selectAll('path')
@@ -58,12 +64,6 @@ export const Performance = ({ performance }) => {
         .style('font-size', sizeRatio(4.25))
         .text(d => d.kind)
 
-      const radarAreaGenerator = d3
-        .areaRadial()
-        .angle((_, index) => scaleAngle(index))
-        .outerRadius(d => scaleRadius(d.value))
-        .curve(d3.curveCardinalClosed.tension(0.8))
-
       chartGroup
         .append('path')
         .attr('fill', 'var(--performance)')
@@ -84,8 +84,10 @@ export const Performance = ({ performance }) => {
   )
 
   return (
-    <div className={css.performance} ref={parentReference}>
-      <svg ref={chartReference} className={css.chart} />
+    <div className={css.performance}>
+      <div className={css.chartContainer} ref={parentReference}>
+        <svg ref={chartReference} className={css.chart} />
+      </div>
     </div>
   )
 }

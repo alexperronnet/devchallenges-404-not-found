@@ -1,5 +1,5 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
-import css from '@/components/activity/activity.module.scss'
+import css from '@/components/dashboard/activity/activity.module.scss'
 
 const activity = [
   { day: '2020-07-01', kilogram: 70, calories: 240 },
