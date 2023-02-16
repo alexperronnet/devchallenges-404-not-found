@@ -1,4 +1,4 @@
-import css from '@/components/hero/hero.module.scss'
+import css from '@/components/dashboard/hero/hero.module.scss'
 
 export const Hero = ({ firstName }) => (
   <section className={css.hero}>

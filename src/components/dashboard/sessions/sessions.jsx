@@ -1,5 +1,5 @@
 import { ResponsiveContainer, LineChart, Tooltip, XAxis, Line, Rectangle } from 'recharts'
-import css from '@/components/sessions/sessions.module.scss'
+import css from '@/components/dashboard/sessions/sessions.module.scss'
 
 const sessions = [
   { day: 'lundi', sessionLength: 30 },

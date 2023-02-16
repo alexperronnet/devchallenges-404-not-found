@@ -2,7 +2,7 @@ import { ReactComponent as IconFire } from '@/assets/icon-fire.svg'
 import { ReactComponent as IconChicken } from '@/assets/icon-chicken.svg'
 import { ReactComponent as IconApple } from '@/assets/icon-apple.svg'
 import { ReactComponent as IconBurger } from '@/assets/icon-burger.svg'
-import css from '@/components/nutrient/nutrient.module.scss'
+import css from '@/components/dashboard/nutrient/nutrient.module.scss'
 
 export const Nutrient = ({ nutrient }) => (
   <article className={`${css.nutrient} ${css[nutrient.name]}`}>
