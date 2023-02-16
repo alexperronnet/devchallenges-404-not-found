@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 export const useIsMobile = width => {
   const [isMobile, setIsMobile] = useState(false)
@@ -13,4 +14,8 @@ export const useIsMobile = width => {
   }, [width])
 
   return { isMobile }
+}
+
+useIsMobile.propTypes = {
+  width: PropTypes.number.isRequired
 }
