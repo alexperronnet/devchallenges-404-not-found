@@ -42,7 +42,7 @@ export const useFetchData = userId => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       fetchData()
-    }, 500)
+    }, 250)
 
     return () => clearTimeout(timeoutId)
   }, [userId])

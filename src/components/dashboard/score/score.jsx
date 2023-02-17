@@ -10,7 +10,7 @@ export const Score = ({ score }) => {
     chart => {
       const { width, height } = parentDimensions
       const sizeRatio = percent => Math.round((percent / 100) * Math.min(width, height))
-      const margin = sizeRatio(13)
+      const margin = sizeRatio(15)
       const thickness = sizeRatio(5)
       const outerRadius = sizeRatio(50) - margin
       const innerRadius = outerRadius - thickness
@@ -39,7 +39,7 @@ export const Score = ({ score }) => {
         .append('path')
         .attr('fill', 'var(--progress)')
         .transition()
-        .duration(1000)
+        .duration(750)
         .attrTween('d', () => {
           const interpolator = d3.interpolate(0, -score)
           return t => arcGenerator(interpolator(t))()
@@ -55,7 +55,7 @@ export const Score = ({ score }) => {
         .style('font-size', sizeRatio(8))
         .style('font-weight', 'bold')
         .transition()
-        .duration(1000)
+        .duration(750)
         .tween('text', () => {
           const interpolator = d3.interpolate(0, score)
           return t => chart.select('text').text(`${Math.round(interpolator(t) * 100)}%`)
