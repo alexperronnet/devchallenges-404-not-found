@@ -37,11 +37,11 @@ export const Sessions = ({ sessions }) => {
 
       // Setup SVG
       chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const cursorsGroup = chart.append('g')
       const chartGroup = chart.append('g').attr('transform', `translate(0, ${height / 3})`)
       const lineGroup = chartGroup.append('g')
       const pointsGroup = chartGroup.append('g')
-      const tooltipGroup = chartGroup.append('g')
-      const cursorsGroup = chart.append('g')
+      const tooltipsGroup = chartGroup.append('g')
       const chartAxis = chartGroup.append('g').attr('transform', `translate(0, ${height / 2})`)
       const gradient = chart.append('defs').append('linearGradient').attr('id', 'opacityGradient')
       gradient.append('stop').attr('offset', '10%').attr('stop-color', 'var(--line)').attr('stop-opacity', 0.1)
@@ -62,7 +62,7 @@ export const Sessions = ({ sessions }) => {
         })
         .attr('stroke-dashoffset', () => chartGroup.select('path').node().getTotalLength())
         .transition()
-        .duration(1000)
+        .duration(750)
         .attr('stroke-dashoffset', 0)
 
       // Draw points
@@ -81,16 +81,16 @@ export const Sessions = ({ sessions }) => {
         .attr('opacity', 0)
 
       // Draw tooltip
-      const tooltip = tooltipGroup
+      const tooltip = tooltipsGroup
         .selectAll('foreignObject')
         .data(sessions)
         .enter()
         .append('foreignObject')
         .attr('class', css.tooltip)
         .attr('x', d => {
-          const tooltipWidth = sizeRatio(20)
+          const w = sizeRatio(20)
           const x = xScale(d.day) + xScale.bandwidth() / 1.5
-          return x + tooltipWidth > width ? width - tooltipWidth : x
+          return x + w > width ? width - w : x
         })
         .attr('y', d => yScale(d.sessionLength) - sizeRatio(12))
         .append('xhtml:span')
@@ -114,7 +114,6 @@ export const Sessions = ({ sessions }) => {
         .attr('width', xScale.bandwidth())
         .attr('x', d => xScale(d.day))
         .attr('fill', 'var(--cursor)')
-        .attr('stroke', 'none')
         .attr('opacity', 0)
 
       // Display elements on mousemove
@@ -134,7 +133,7 @@ export const Sessions = ({ sessions }) => {
         tooltip.style('opacity', 0)
       })
     },
-    [parentDimensions]
+    [parentDimensions, sessions]
   )
 
   return (

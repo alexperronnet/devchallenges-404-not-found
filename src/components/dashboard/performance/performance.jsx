@@ -74,7 +74,7 @@ export const Performance = ({ performance }) => {
         .attr('stroke', 'var(--performance)')
         .attr('stroke-width', sizeRatio(0.5))
         .transition()
-        .duration(1000)
+        .duration(750)
         .attrTween('d', () => {
           const interpolator = d3.interpolate(
             performance.map(d => ({ ...d, value: 0 })),
