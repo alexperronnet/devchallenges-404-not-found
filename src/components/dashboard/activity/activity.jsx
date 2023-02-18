@@ -1,5 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/activity/activity.module.scss'
 
 export const Activity = ({ activity }) => {
@@ -182,4 +183,14 @@ export const Activity = ({ activity }) => {
       </div>
     </article>
   )
+}
+
+Activity.propTypes = {
+  activity: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired
+    })
+  ).isRequired
 }

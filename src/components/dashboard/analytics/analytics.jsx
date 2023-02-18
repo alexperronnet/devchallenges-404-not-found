@@ -1,4 +1,5 @@
 import { Activity, Sessions, Performance, Score, Nutrient } from '@/components'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/analytics/analytics.module.scss'
 
 export const Analytics = ({ data }) => (
@@ -12,3 +13,7 @@ export const Analytics = ({ data }) => (
     ))}
   </section>
 )
+
+Analytics.propTypes = {
+  data: PropTypes.object.isRequired
+}

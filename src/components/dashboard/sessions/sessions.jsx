@@ -1,5 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/sessions/sessions.module.scss'
 
 export const Sessions = ({ sessions }) => {
@@ -136,4 +137,13 @@ export const Sessions = ({ sessions }) => {
       </div>
     </article>
   )
+}
+
+Sessions.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      sessionLength: PropTypes.number.isRequired
+    })
+  ).isRequired
 }

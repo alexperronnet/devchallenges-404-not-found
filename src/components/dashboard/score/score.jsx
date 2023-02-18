@@ -1,5 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/score/score.module.scss'
 
 export const Score = ({ score }) => {
@@ -81,4 +82,8 @@ export const Score = ({ score }) => {
       </div>
     </article>
   )
+}
+
+Score.propTypes = {
+  score: PropTypes.number.isRequired
 }

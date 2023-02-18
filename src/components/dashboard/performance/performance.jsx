@@ -1,5 +1,6 @@
 import { useDimensions, useD3 } from '@/hooks'
 import * as d3 from 'd3'
+import PropTypes from 'prop-types'
 import css from '@/components/dashboard/performance/performance.module.scss'
 
 export const Performance = ({ performance }) => {
@@ -92,4 +93,13 @@ export const Performance = ({ performance }) => {
       </div>
     </div>
   )
+}
+
+Performance.propTypes = {
+  performance: PropTypes.arrayOf(
+    PropTypes.shape({
+      kind: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })
+  ).isRequired
 }
