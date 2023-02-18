@@ -1,3 +1,5 @@
-# SportSee
+# SportSee (Recharts)
 
-:warning: This project is still in development. It is not ready for production use.
+This branch contains the code for the SportSee project using Recharts library for the charts.
+
+The complete project is available on the [main branch](https://github.com/alexperronnet/openclassrooms-p12-sportsee)
