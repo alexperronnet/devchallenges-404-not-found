@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import css from '@/components/error-message/error-message.module.scss'
 
 export const ErrorMessage = ({ title, message }) => (
@@ -7,8 +6,3 @@ export const ErrorMessage = ({ title, message }) => (
     <p>{message}</p>
   </section>
 )
-
-ErrorMessage.propTypes = {
-  title: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired
-}

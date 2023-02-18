@@ -35,7 +35,6 @@ export const Sessions = ({ sessions }) => {
         .tickPadding(sizeRatio(5))
         .tickFormat(day => day.slice(0, 1).toUpperCase())
 
-      // Setup SVG
       chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const cursorsGroup = chart.append('g')
       const chartGroup = chart.append('g').attr('transform', `translate(0, ${height / 3})`)
@@ -47,7 +46,6 @@ export const Sessions = ({ sessions }) => {
       gradient.append('stop').attr('offset', '10%').attr('stop-color', 'var(--line)').attr('stop-opacity', 0.1)
       gradient.append('stop').attr('offset', '100%').attr('stop-color', 'var(--line)').attr('stop-opacity', 1)
 
-      // Draw line
       lineGroup
         .append('path')
         .datum(sessions)
@@ -65,7 +63,6 @@ export const Sessions = ({ sessions }) => {
         .duration(750)
         .attr('stroke-dashoffset', 0)
 
-      // Draw points
       const points = pointsGroup
         .selectAll('circle')
         .data(sessions)
@@ -80,7 +77,6 @@ export const Sessions = ({ sessions }) => {
         .attr('stroke-width', sizeRatio(2.5))
         .attr('opacity', 0)
 
-      // Draw tooltip
       const tooltip = tooltipsGroup
         .selectAll('foreignObject')
         .data(sessions)
@@ -98,13 +94,11 @@ export const Sessions = ({ sessions }) => {
         .text(d => `${d.sessionLength} min`)
         .style('opacity', 0)
 
-      // Draw ticks
       chartAxis
         .call(xAxis)
         .call(g => g.select('.domain').remove())
         .call(g => g.selectAll('.tick text').attr('fill', 'var(--legend)').style('font-size', sizeRatio(5)))
 
-      // Draw cursor
       const cursorRects = cursorsGroup
         .selectAll('rect')
         .data(sessions)
@@ -116,7 +110,6 @@ export const Sessions = ({ sessions }) => {
         .attr('fill', 'var(--cursor)')
         .attr('opacity', 0)
 
-      // Display elements on mousemove
       chart.on('mousemove', event => {
         const [x] = d3.pointer(event)
         const index = Math.floor(x / xScale.bandwidth())
@@ -126,7 +119,6 @@ export const Sessions = ({ sessions }) => {
         tooltip.style('opacity', (_, index_) => (index_ === index ? 1 : 0))
       })
 
-      // Hide elements on mouseout
       chart.on('mouseout', () => {
         cursorRects.attr('opacity', 0)
         points.attr('opacity', 0)

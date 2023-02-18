@@ -145,7 +145,7 @@ export const Activity = ({ activity }) => {
         .attr('class', css.tooltipContent)
         .html(
           d => `
-          <span class="${css.tooltipPoids}">${d.kilogram} kg</span>
+          <span class="${css.tooltipPoids}">${d.kilogram} Kg</span>
           <span class="${css.tooltipCalories}">${d.calories} kCal</span>
         `
         )

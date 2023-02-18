@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
 import { extractActivity, extractAverageSessions, extractMainData, extractPerformance } from '@/utils'
-import PropTypes from 'prop-types'
 
 const dataUrl = import.meta.env.MODE === 'development' ? import.meta.env.VITE_MOCK_API : import.meta.env.VITE_API_URL
 const extension = import.meta.env.MODE === 'development' ? '.json' : ''
@@ -48,8 +47,4 @@ export const useFetchData = userId => {
   }, [userId])
 
   return { data, loading, error }
-}
-
-useFetchData.propTypes = {
-  userId: PropTypes.number.isRequired
 }
