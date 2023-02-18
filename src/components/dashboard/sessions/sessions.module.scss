@@ -17,31 +17,18 @@
   color: rgba(var.$color-white, 0.5);
 }
 
-.chartContainer {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-
 .chart {
   --legend: #{rgba(var.$color-white, 0.5)};
   --line: #{var.$color-white};
-  --cursor: #{rgba(var.$color-black, 0.15)};
+  --cursor: #{rgba(var.$color-white, 0.1)};
+
+  font-size: var.$text-sm;
 }
 
 .tooltip {
-  display: inline-block;
-  width: 1px;
-  height: 1px;
-  overflow: visible;
-}
-
-.tooltip span {
-  display: inline-block;
-  width: max-content;
-  padding: 0.25rem 0.5rem;
+  font-size: var.$text-xs;
+  color: var.$color-neutral-700;
   background-color: var.$color-white;
+  padding: 0.5rem;
   border-radius: var.$rounded-sm;
-  box-shadow: var.$shadow-md;
 }

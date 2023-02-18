@@ -1,5 +1,3 @@
 export { useAuth } from '@/hooks/use-auth'
 export { useFetchData } from '@/hooks/use-fetch-data'
 export { useIsMobile } from '@/hooks/use-is-mobile'
-export { useDimensions } from '@/hooks/use-dimensions'
-export { useD3 } from '@/hooks/use-d3'
