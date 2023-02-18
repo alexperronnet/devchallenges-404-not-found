@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import css from '@/pages/login/login.module.scss'
 
-const ids = [12, 18]
+const users = [
+  { id: 12, name: 'Utilisateur 12' },
+  { id: 18, name: 'Utilisateur 18' }
+]
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -16,9 +19,9 @@ export const Login = () => {
         accéder à l&apos;application,veuillez vous connecter avec l&apos;un des identifiants suivants :
       </p>
       <div className={css.form}>
-        {ids.map(id => (
-          <button className={css.formButton} key={id} onClick={() => handleLogin(id)}>
-            Utilisateur {id}
+        {users.map(user => (
+          <button className={css.formButton} key={user.id} onClick={() => handleLogin(user.id)}>
+            {user.name}
           </button>
         ))}
       </div>

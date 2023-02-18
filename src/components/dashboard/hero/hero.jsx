@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import css from '@/components/dashboard/hero/hero.module.scss'
 
 export const Hero = ({ firstName }) => (
@@ -9,7 +8,3 @@ export const Hero = ({ firstName }) => (
     <p className={css.subtitle}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
   </section>
 )
-
-Hero.propTypes = {
-  firstName: PropTypes.string.isRequired
-}

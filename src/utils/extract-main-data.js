@@ -1,30 +1,39 @@
-export const extractMainData = mainData => ({
-  todayScore: mainData.data.score || mainData.data.todayScore,
-  userInfos: mainData.data.userInfos,
-  keyData: [
-    {
-      name: 'calorie',
-      displayedName: 'calories',
-      value: mainData.data.keyData.calorieCount,
-      unit: 'kCal'
-    },
-    {
-      name: 'protein',
-      displayedName: 'protéines',
-      value: mainData.data.keyData.proteinCount,
-      unit: 'g'
-    },
-    {
-      name: 'carbohydrate',
-      displayedName: 'glucides',
-      value: mainData.data.keyData.carbohydrateCount,
-      unit: 'g'
-    },
-    {
-      name: 'lipid',
-      displayedName: 'lipides',
-      value: mainData.data.keyData.lipidCount,
-      unit: 'g'
-    }
-  ]
-})
+export const extractMainData = ({ data }) => {
+  const {
+    score,
+    todayScore,
+    userInfos,
+    keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount }
+  } = data
+
+  return {
+    todayScore: score || todayScore,
+    userInfos,
+    keyData: [
+      {
+        name: 'calorie',
+        displayedName: 'calories',
+        value: calorieCount,
+        unit: 'kCal'
+      },
+      {
+        name: 'protein',
+        displayedName: 'protéines',
+        value: proteinCount,
+        unit: 'g'
+      },
+      {
+        name: 'carbohydrate',
+        displayedName: 'glucides',
+        value: carbohydrateCount,
+        unit: 'g'
+      },
+      {
+        name: 'lipid',
+        displayedName: 'lipides',
+        value: lipidCount,
+        unit: 'g'
+      }
+    ]
+  }
+}

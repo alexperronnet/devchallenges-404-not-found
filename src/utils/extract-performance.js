@@ -1,4 +1,4 @@
-const PerfomanceTranslation = {
+const PerformanceTranslation = {
   1: 'cardio',
   2: 'énergie',
   3: 'endurance',
@@ -7,12 +7,12 @@ const PerfomanceTranslation = {
   6: 'intensité'
 }
 
-export const extractPerformance = performance => {
-  const data = performance.data.data
+export const extractPerformance = ({ data }) => {
+  const { data: performanceData } = data
 
-  return data
+  return performanceData
     .map(({ kind, value }) => ({
-      kind: PerfomanceTranslation[kind],
+      kind: PerformanceTranslation[kind],
       value
     }))
     .reverse()
