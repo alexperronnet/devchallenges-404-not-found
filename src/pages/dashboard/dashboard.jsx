@@ -1,6 +1,6 @@
 import { useIsMobile } from '@/hooks'
 import { Loader, ErrorMessage, Hero, Analytics } from '@/components'
-import { DataConsumer } from '@/context'
+import { DataConsumer } from '@/contexts'
 import css from '@/pages/dashboard/dashboard.module.scss'
 
 export const Dashboard = () => {

@@ -4,6 +4,11 @@ import { Login, Error, Dashboard } from '@/pages'
 
 const notAvailableRoutes = ['profil', 'reglage', 'communaute', 'course', 'natation', 'cyclisme', 'musculation']
 
+/**
+ * The main router component that defines the routes for the application.
+ * @function
+ * @returns {JSX.Element} The router component.
+ */
 export const Router = () => (
   <BrowserRouter>
     <Routes>

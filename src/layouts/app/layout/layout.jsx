@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { DataProvider } from '@/context'
+import { DataProvider } from '@/contexts'
 import { useIsMobile } from '@/hooks'
 import { AppHeader, AppHeaderMob, AppSidebar } from '@/layouts'
 import css from '@/layouts/app/layout/layout.module.scss'

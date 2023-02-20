@@ -1,0 +1,43 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js(doc|x)?$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "encoding": "utf8",
+    "destination": "docs",
+    "readme": "readme.md",
+    "recurse": true,
+    "verbose": true,
+    "template": "node_modules/clean-jsdoc-theme",
+    "theme_opts": {
+      "homepageTitle": "SportSee documentation",
+      "footer": "Project 12 of OpenClassrooms path JavaScript React Developer",
+      "static_dir": ["public/favicon.png"],
+      "favicon": "public/favicon.png",
+      "menu": [
+        {
+          "title": "Live demo",
+          "link": "https://sportsee.alexperronnet.dev",
+          "target": "_blank"
+        },
+        {
+          "title": "Source",
+          "link": "https://github.com/alexperronnet/openclassrooms-p12-sportsee",
+          "target": "_blank"
+        }
+      ]
+    },
+    "displayModuleHeader": true
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
+  }
+}
