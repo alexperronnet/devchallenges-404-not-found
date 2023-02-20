@@ -8,8 +8,11 @@ const days = {
   7: 'dimanche'
 }
 
-export const extractAverageSessions = ({ data: { sessions } }) =>
-  sessions.map(({ day, sessionLength }) => ({
+export const extractAverageSessions = ({ data: { sessions } }) => {
+  const averageSessions = sessions.map(({ day, sessionLength }) => ({
     day: days[day],
     sessionLength
   }))
+
+  return averageSessions
+}

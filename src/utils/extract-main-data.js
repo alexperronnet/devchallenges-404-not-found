@@ -1,12 +1,12 @@
-export const extractMainData = ({ data }) => {
+export const extractMainData = ({ data: mainData }) => {
   const {
     score,
     todayScore,
     userInfos,
     keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount }
-  } = data
+  } = mainData
 
-  return {
+  const mainDataFormatted = {
     todayScore: score || todayScore,
     userInfos,
     keyData: [
@@ -36,4 +36,6 @@ export const extractMainData = ({ data }) => {
       }
     ]
   }
+
+  return mainDataFormatted
 }

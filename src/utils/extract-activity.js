@@ -1,1 +1,1 @@
-export const extractActivity = activity => activity.data.sessions
+export const extractActivity = ({ data: { sessions } }) => sessions

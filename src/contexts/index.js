@@ -1,1 +1,1 @@
-export { DataProvider, DataConsumer } from '@/contexts/data-context'
+export * from '@/contexts/data-context'

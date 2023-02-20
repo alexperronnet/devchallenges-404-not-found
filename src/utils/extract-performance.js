@@ -7,13 +7,13 @@ const PerformanceTranslation = {
   6: 'intensité'
 }
 
-export const extractPerformance = ({ data }) => {
-  const { data: performanceData } = data
+export const extractPerformance = ({ data: { data: performance } }) => {
+  const performanceFormatted = performance.map(({ kind, value }) => ({
+    kind: PerformanceTranslation[kind],
+    value
+  }))
 
-  return performanceData
-    .map(({ kind, value }) => ({
-      kind: PerformanceTranslation[kind],
-      value
-    }))
-    .reverse()
+  const performanceReverse = performanceFormatted.reverse()
+
+  return performanceReverse
 }

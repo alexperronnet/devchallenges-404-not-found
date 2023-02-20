@@ -7,7 +7,7 @@ export const Sessions = ({ sessions }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
   const { chartReference } = useD3(
-    chart => {
+    svg => {
       const { width, height } = parentDimensions
       const sizeRatio = percent => Math.round((percent / 100) * Math.min(width, height))
 
@@ -36,7 +36,7 @@ export const Sessions = ({ sessions }) => {
         .tickPadding(sizeRatio(5))
         .tickFormat(day => day.slice(0, 1).toUpperCase())
 
-      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const cursorsGroup = chart.append('g')
       const chartGroup = chart.append('g').attr('transform', `translate(0, ${height / 3})`)
       const lineGroup = chartGroup.append('g')
@@ -44,6 +44,7 @@ export const Sessions = ({ sessions }) => {
       const tooltipsGroup = chartGroup.append('g')
       const chartAxis = chartGroup.append('g').attr('transform', `translate(0, ${height / 2})`)
       const gradient = chart.append('defs').append('linearGradient').attr('id', 'opacityGradient')
+
       gradient.append('stop').attr('offset', '10%').attr('stop-color', 'var(--line)').attr('stop-opacity', 0.1)
       gradient.append('stop').attr('offset', '100%').attr('stop-color', 'var(--line)').attr('stop-opacity', 1)
 

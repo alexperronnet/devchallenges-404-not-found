@@ -12,20 +12,18 @@ const routes = [
   { path: 'musculation', icon: IconDumbbell }
 ]
 
-export const AppSidebar = () => {
-  const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear()
 
-  return (
-    <aside className={css.sidebar}>
-      <nav className={css.nav}>
-        {routes.map(({ path, icon: Icon }) => (
-          <NavLink className={css.navLink} key={path} to={path} end>
-            <Icon className={css.navLinkIcon} />
-            <span className={css.navLinkLabel}>Redirection vers {path}</span>
-          </NavLink>
-        ))}
-      </nav>
-      <footer className={css.footer}>Copiryght, SportSee {currentYear}</footer>
-    </aside>
-  )
-}
+export const AppSidebar = () => (
+  <aside className={css.sidebar}>
+    <nav className={css.nav}>
+      {routes.map(({ path, icon: Icon }) => (
+        <NavLink className={css.navLink} key={path} to={path} end>
+          <Icon className={css.navLinkIcon} />
+          <span className={css.navLinkLabel}>Redirection vers {path}</span>
+        </NavLink>
+      ))}
+    </nav>
+    <footer className={css.footer}>Copiryght, SportSee {currentYear}</footer>
+  </aside>
+)

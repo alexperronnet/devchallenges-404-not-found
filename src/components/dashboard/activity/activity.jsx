@@ -7,17 +7,14 @@ export const Activity = ({ activity }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
   const { chartReference } = useD3(
-    chart => {
+    svg => {
       const { width, height } = parentDimensions
       const sizeRatio = percent => Math.round((percent / 100) * Math.min(width, height))
       const xAxisSize = { w: width, h: sizeRatio(15) }
       const yAxisSize = { w: sizeRatio(25), h: height }
       const chartSize = { w: width - yAxisSize.w, h: height - xAxisSize.h }
-
-      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
-      const xAxisGroup = chart.append('g').attr('transform', `translate(0, ${chartSize.h})`)
-      const yAxisGroup = chart.append('g').attr('transform', `translate(${chartSize.w}, 0)`)
-      const gridLinesGroup = chart.append('g').attr('transform', `translate(${yAxisSize.w}, 0)`)
+      const barWidth = sizeRatio(5)
+      const barGap = sizeRatio(5)
 
       const xScale = d3
         .scaleBand()
@@ -50,6 +47,14 @@ export const Activity = ({ activity }) => {
         .tickSize(0)
         .tickPadding(sizeRatio(15))
 
+      const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const xAxisGroup = chart.append('g').attr('transform', `translate(0, ${chartSize.h})`)
+      const yAxisGroup = chart.append('g').attr('transform', `translate(${chartSize.w}, 0)`)
+      const gridLinesGroup = chart.append('g').attr('transform', `translate(${yAxisSize.w}, 0)`)
+      const chartGroup = chart.append('g')
+      const cursorsGroup = chart.append('g')
+      const tooltipsGroup = chart.append('g')
+
       xAxisGroup.call(xAxis).select('.domain').attr('stroke', 'var(--line)').attr('stroke-width', 2)
       xAxisGroup
         .selectAll('text')
@@ -76,10 +81,6 @@ export const Activity = ({ activity }) => {
         .attr('stroke-width', 1)
         .attr('stroke-dasharray', '3')
 
-      const barWidth = sizeRatio(5)
-      const barGap = sizeRatio(5)
-
-      const chartGroup = chart.append('g')
       const dayGroup = chartGroup
         .selectAll('g')
         .data(activity)
@@ -120,8 +121,6 @@ export const Activity = ({ activity }) => {
           })
         )
 
-      const cursorsGroup = chart.append('g')
-
       const cursorRects = cursorsGroup
         .selectAll('rect')
         .data(activity)
@@ -131,8 +130,6 @@ export const Activity = ({ activity }) => {
         .attr('height', chartSize.h)
         .attr('fill', 'var(--cursor)')
         .attr('opacity', 0)
-
-      const tooltipsGroup = chart.append('g')
 
       const tooltips = tooltipsGroup
         .selectAll('foreignObject')

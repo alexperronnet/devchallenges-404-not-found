@@ -7,7 +7,7 @@ export const Performance = ({ performance }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
   const { chartReference } = useD3(
-    chart => {
+    svg => {
       const { width, height } = parentDimensions
       const sizeRatio = percent => Math.round((percent / 100) * Math.min(width, height))
       const margin = sizeRatio(15)
@@ -36,11 +36,9 @@ export const Performance = ({ performance }) => {
         .outerRadius(d => scaleRadius(d.value))
         .curve(d3.curveCardinalClosed.tension(0.8))
 
-      // Setup SVG
-      chart.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
+      const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
 
-      // Dray radar
       chartGroup
         .selectAll('path')
         .data(radarGenerator)
@@ -52,7 +50,6 @@ export const Performance = ({ performance }) => {
         .attr('stroke-width', sizeRatio(0.5))
         .attr('stroke-opacity', (_, index) => (index + 1) * (1 / levels))
 
-      // Draw ticks
       chartGroup
         .selectAll('text')
         .data(performance)
@@ -66,7 +63,6 @@ export const Performance = ({ performance }) => {
         .style('font-size', sizeRatio(4.25))
         .text(d => d.kind)
 
-      // Draw performance
       chartGroup
         .append('path')
         .attr('fill', 'var(--performance)')

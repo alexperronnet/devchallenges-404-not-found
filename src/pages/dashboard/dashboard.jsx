@@ -12,11 +12,13 @@ export const Dashboard = () => {
         if (loading) return <Loader />
         if (error) return <ErrorMessage title="Erreur" message="Impossible de charger les données." />
 
+        const { firstName } = data.mainData.userInfos
+
         return isMobile ? (
           <ErrorMessage title="Dashboard indisponible" message="Vos statistiques ne sont pas disponibles sur mobile." />
         ) : (
           <section className={css.dashboard}>
-            <Hero firstName={data.mainData.userInfos.firstName} />
+            <Hero firstName={firstName} />
             <Analytics data={data} />
           </section>
         )

@@ -1,3 +1,3 @@
-export { Login } from '@/pages/login/login'
-export { Dashboard } from '@/pages/dashboard/dashboard'
-export { Error } from '@/pages/error/error'
+export * from '@/pages/login/login'
+export * from '@/pages/dashboard/dashboard'
+export * from '@/pages/error/error'
