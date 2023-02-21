@@ -16,12 +16,17 @@ const routes = [
   { path: 'musculation', label: 'Musuclation' }
 ]
 
+/**
+ * Component that renders the application header for mobile devices.
+ * @function AppHeaderMob
+ * @returns {JSX.Element} Returns a React element for the application header for mobile devices.
+ */
 export const AppHeaderMob = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownReference = useRef(null)
   const navigate = useNavigate()
 
-  const habdleToggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
+  const handleToggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
   const handleEscape = event => event.key === 'Escape' && setIsDropdownOpen(false)
   const handleLogout = () => localStorage.removeItem('userId') || navigate('/')
 
@@ -36,14 +41,14 @@ export const AppHeaderMob = () => {
   return (
     <header className={css.header}>
       <Logo className={css.logo} />
-      <button className={css.menu} onClick={habdleToggleDropdown}>
+      <button className={css.menu} onClick={handleToggleDropdown}>
         {isDropdownOpen ? <IconClose className={css.menuIcon} /> : <IconMenu className={css.menuIcon} />}
         <span className={css.menuLabel}>{isDropdownOpen ? 'Fermer' : 'Menu'}</span>
       </button>
       <div className={css.dropdown} open={isDropdownOpen} ref={dropdownReference}>
         <nav className={css.nav}>
           {routes.map(({ path, label }) => (
-            <NavLink className={css.navLink} key={path} to={path} end onClick={habdleToggleDropdown}>
+            <NavLink className={css.navLink} key={path} to={path} end onClick={handleToggleDropdown}>
               {label}
             </NavLink>
           ))}

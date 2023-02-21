@@ -14,6 +14,11 @@ const routes = [
 
 const currentYear = new Date().getFullYear()
 
+/**
+ * Component that renders the sidebar of the application.
+ * @function AppSidebar
+ * @returns {JSX.Element} Returns a React element for the sidebar of the application.
+ */
 export const AppSidebar = () => (
   <aside className={css.sidebar}>
     <nav className={css.nav}>

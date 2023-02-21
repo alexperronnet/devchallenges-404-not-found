@@ -10,6 +10,11 @@ const routes = [
   { path: 'communaute', label: 'Communauté' }
 ]
 
+/**
+ * Component that renders the header of the application when the user is logged in.
+ * @function AppHeader
+ * @returns {JSX.Element} Returns a React element for the header of the application when the user is logged in.
+ */
 export const AppHeader = () => {
   const navigate = useNavigate()
 

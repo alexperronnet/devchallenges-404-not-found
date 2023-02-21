@@ -3,6 +3,13 @@ import * as d3 from 'd3'
 import PropTypes from 'prop-types'
 import css from '@/components/dashboard/performance/performance.module.scss'
 
+/**
+ * Component displaying a radar chart for performance.
+ * @function Performance
+ * @param {object} props - Component props.
+ * @param {Array<{ kind: string, value: number }>} props.performance - Performance data, containing the kind of the performance and its value.
+ * @returns {JSX.Element} - Rendered component.
+ */
 export const Performance = ({ performance }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
@@ -36,9 +43,11 @@ export const Performance = ({ performance }) => {
         .outerRadius(d => scaleRadius(d.value))
         .curve(d3.curveCardinalClosed.tension(0.8))
 
+      // Set up the chart elements
       const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const chartGroup = chart.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`)
 
+      // Draw the chart
       chartGroup
         .selectAll('path')
         .data(radarGenerator)
@@ -50,6 +59,7 @@ export const Performance = ({ performance }) => {
         .attr('stroke-width', sizeRatio(0.5))
         .attr('stroke-opacity', (_, index) => (index + 1) * (1 / levels))
 
+      // Draw the chart ticks
       chartGroup
         .selectAll('text')
         .data(performance)
@@ -63,6 +73,7 @@ export const Performance = ({ performance }) => {
         .style('font-size', sizeRatio(4.25))
         .text(d => d.kind)
 
+      // Draw the chart area
       chartGroup
         .append('path')
         .attr('fill', 'var(--performance)')

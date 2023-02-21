@@ -7,6 +7,12 @@ const layoutOptions = {
   app: 'app'
 }
 
+/**
+ * Component that renders the error page for the application.
+ * @function Error
+ * @param {string} layout - The layout for the error page, either "app" or "main".
+ * @returns {JSX.Element} Returns the Error component.
+ */
 export const Error = ({ layout }) => (
   <section className={css.error}>
     <h1 className={css.title}>404</h1>

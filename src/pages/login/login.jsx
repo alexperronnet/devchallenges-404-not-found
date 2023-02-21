@@ -6,6 +6,11 @@ const users = [
   { id: 18, name: 'Utilisateur 18' }
 ]
 
+/**
+ * Component that renders the login page for the application.
+ * @function Login
+ * @returns {JSX.Element} Returns the Login component.
+ */
 export const Login = () => {
   const navigate = useNavigate()
 

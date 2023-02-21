@@ -3,6 +3,12 @@ import * as d3 from 'd3'
 import PropTypes from 'prop-types'
 import css from '@/components/dashboard/sessions/sessions.module.scss'
 
+/**
+ * Component that renders a line chart for the average duration of sessions.
+ * @function Sessions
+ * @param {Array} sessions - The array of sessions data.
+ * @returns {JSX.Element} Returns a React element that displays the chart for the average duration of sessions.
+ */
 export const Sessions = ({ sessions }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
@@ -36,6 +42,7 @@ export const Sessions = ({ sessions }) => {
         .tickPadding(sizeRatio(5))
         .tickFormat(day => day.slice(0, 1).toUpperCase())
 
+      // Set up the chart elements
       const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const cursorsGroup = chart.append('g')
       const chartGroup = chart.append('g').attr('transform', `translate(0, ${height / 3})`)
@@ -45,9 +52,11 @@ export const Sessions = ({ sessions }) => {
       const chartAxis = chartGroup.append('g').attr('transform', `translate(0, ${height / 2})`)
       const gradient = chart.append('defs').append('linearGradient').attr('id', 'opacityGradient')
 
+      // Create gradient
       gradient.append('stop').attr('offset', '10%').attr('stop-color', 'var(--line)').attr('stop-opacity', 0.1)
       gradient.append('stop').attr('offset', '100%').attr('stop-color', 'var(--line)').attr('stop-opacity', 1)
 
+      // Create the line
       lineGroup
         .append('path')
         .datum(sessions)
@@ -96,6 +105,7 @@ export const Sessions = ({ sessions }) => {
         .text(d => `${d.sessionLength} min`)
         .style('opacity', 0)
 
+      // Create the axis
       chartAxis
         .call(xAxis)
         .call(g => g.select('.domain').remove())

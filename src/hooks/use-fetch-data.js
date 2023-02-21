@@ -5,6 +5,13 @@ import PropTypes from 'prop-types'
 const dataUrl = import.meta.env.MODE === 'development' ? import.meta.env.VITE_MOCK_API : import.meta.env.VITE_API_URL
 const extension = import.meta.env.MODE === 'development' ? '.json' : ''
 
+/**
+ * Hook that fetches data from the API.
+ * @function useFetchData
+ * @param {number} userId - The ID of the user.
+ * @returns {object} Returns an object containing the fetched data, loading state, and error state.
+ * @see {@link https://github.com/alexperronnet/openclassrooms-p12-sportsee-micro-api|API}
+ */
 export const useFetchData = userId => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)

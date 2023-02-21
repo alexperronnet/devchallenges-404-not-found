@@ -3,6 +3,19 @@ import * as d3 from 'd3'
 import PropTypes from 'prop-types'
 import css from '@/components/dashboard/activity/activity.module.scss'
 
+/**
+ * Renders a bar chart for the activity data.
+ * @function Activity
+ * @param {Object} data - The data for the activity.
+ * @param {Array} data.activity - The array of daily activity data.
+ * @param {Array} data.activity.day - The day for the activity.
+ * @param {number} data.activity.kilogram - The amount of weight (in kg) for the activity.
+ * @param {number} data.activity.calories - The amount of calories burned for the activity.
+ * @param {Array} data.averageSessions - The array of session averages.
+ * @param {Object} data.performance - The performance data.
+ * @param {Object} data.mainData - The main data.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export const Activity = ({ activity }) => {
   const [parentReference, parentDimensions] = useDimensions()
 
@@ -47,6 +60,7 @@ export const Activity = ({ activity }) => {
         .tickSize(0)
         .tickPadding(sizeRatio(15))
 
+      // Set up the chart elements
       const chart = svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`)
       const xAxisGroup = chart.append('g').attr('transform', `translate(0, ${chartSize.h})`)
       const yAxisGroup = chart.append('g').attr('transform', `translate(${chartSize.w}, 0)`)
@@ -55,6 +69,7 @@ export const Activity = ({ activity }) => {
       const cursorsGroup = chart.append('g')
       const tooltipsGroup = chart.append('g')
 
+      // Create x-axis
       xAxisGroup.call(xAxis).select('.domain').attr('stroke', 'var(--line)').attr('stroke-width', 2)
       xAxisGroup
         .selectAll('text')
@@ -62,6 +77,7 @@ export const Activity = ({ activity }) => {
         .style('font-size', sizeRatio(7))
         .style('font-weight', 700)
 
+      // Create y-axis
       yAxisGroup.call(yAxisKg).select('.domain').remove()
       yAxisGroup
         .selectAll('text')
@@ -69,6 +85,7 @@ export const Activity = ({ activity }) => {
         .style('font-size', sizeRatio(7))
         .style('font-weight', 700)
 
+      // Create grid lines
       gridLinesGroup
         .selectAll('line')
         .data(yScaleKg.ticks(3).slice(1))
@@ -93,6 +110,7 @@ export const Activity = ({ activity }) => {
         return `M${x} ${y} a${r} ${r} 0 0 1 ${r} -${r} h${w - 2 * r} a${r} ${r} 0 0 1 ${r} ${r} v${h} h-${w} Z`
       }
 
+      // Create bars for weight
       dayGroup
         .append('path')
         .attr('fill', 'var(--poids)')
@@ -107,6 +125,7 @@ export const Activity = ({ activity }) => {
           })
         )
 
+      // Create bars for calories
       dayGroup
         .append('path')
         .attr('fill', 'var(--calories)')

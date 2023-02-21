@@ -1,6 +1,11 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+/**
+ * Hook that provides authentication information for the application.
+ * @function useAuth
+ * @returns {object} Returns an object containing the current user ID.
+ */
 export const useAuth = () => {
   const navigate = useNavigate()
   const [userId, setUserId] = useState(localStorage.getItem('userId'))

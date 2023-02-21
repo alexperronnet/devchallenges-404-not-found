@@ -8,6 +8,13 @@ const days = {
   7: 'dimanche'
 }
 
+/**
+ * Extracts and transforms activity sessions data into an array of objects containing day names and session lengths.
+ * @function extractAverageSessions
+ * @param {object} data - The object containing activity session data.
+ * @param {array} data.sessions - An array of activity sessions.
+ * @returns {array} Returns the transformed array of objects containing day names and session lengths.
+ */
 export const extractAverageSessions = ({ data: { sessions } }) => {
   const averageSessions = sessions.map(({ day, sessionLength }) => ({
     day: days[day],

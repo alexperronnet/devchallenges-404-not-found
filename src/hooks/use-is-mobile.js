@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Hook that detects whether the viewport is mobile or not.
+ * @function useIsMobile
+ * @param {number} width - The maximum width for mobile view.
+ * @returns {object} Returns an object containing a boolean indicating whether the viewport is mobile or not.
+ */
 export const useIsMobile = width => {
   const [isMobile, setIsMobile] = useState(false)
 

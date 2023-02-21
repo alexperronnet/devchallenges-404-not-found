@@ -1,5 +1,10 @@
 import { useState, useRef, useLayoutEffect } from 'react'
 
+/**
+ * Hook that provides the dimensions of the parent container.
+ * @function useDimensions
+ * @returns {array} Returns an array containing a reference to the parent element and its dimensions.
+ */
 export const useDimensions = () => {
   const [parentDimensions, setParentDimensions] = useState({ width: 0, height: 0 })
   const parentReference = useRef(null)

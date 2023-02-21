@@ -6,6 +6,11 @@ import '@/styles/main.scss'
 const container = document.querySelector('#root')
 const root = createRoot(container)
 
+/**
+ * Renders the application to the DOM.
+ * @function render
+ * @returns {void}
+ */
 root.render(
   <StrictMode>
     <Router />

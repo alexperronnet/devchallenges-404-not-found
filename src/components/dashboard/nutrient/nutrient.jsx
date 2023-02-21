@@ -5,6 +5,16 @@ import { ReactComponent as IconBurger } from '@/assets/icon-burger.svg'
 import PropTypes from 'prop-types'
 import css from '@/components/dashboard/nutrient/nutrient.module.scss'
 
+/**
+ * Renders a nutrient component.
+ * @function Nutrient
+ * @param {Object} nutrient - The nutrient data to display.
+ * @param {string} nutrient.name - The name of the nutrient.
+ * @param {string} nutrient.displayedName - The displayed name of the nutrient.
+ * @param {number} nutrient.value - The value of the nutrient.
+ * @param {string} nutrient.unit - The unit of the nutrient.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export const Nutrient = ({ nutrient }) => (
   <article className={`${css.nutrient} ${css[nutrient.name]}`}>
     <div className={css.iconWrapper}>

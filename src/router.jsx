@@ -8,6 +8,12 @@ const routePaths = {
   error: '*'
 }
 
+/**
+ * Component that handles routing in the application using React Router.
+ * @function Router
+ * @returns {JSX.Element} Returns the Router component.
+ * @see {@link https://reactrouter.com/|React Router}
+ */
 export const Router = () => (
   <BrowserRouter>
     <Routes>
