@@ -12,7 +12,7 @@ For this project, I had to build a sport analytics dashboard. The dashboard is a
 
 ### Useful links
 
-- [Live demo](https://sportsee.alexperronnet.dev/)
+- [Live demo](https://openclassrooms-12-sportsee.netlify.app)
 - [Documentation](https://alexperronnet.github.io/openclassrooms-12-sportsee/)
 - [Figma mockup](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1)
 - [User stories](https://www.notion.so/openclassrooms/Copy-of-Dev4U-projet-Learn-Home-6686aa4b5f44417881a4884c9af5669e)
