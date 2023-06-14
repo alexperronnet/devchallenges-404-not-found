@@ -1,5 +1,9 @@
 # SportSee
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0fa15b5f-c4e1-44df-ab82-e3a416080d08/deploy-status)](https://app.netlify.com/sites/openclassrooms-12-sportsee/deploys)
+
+> **Disclaimer**: This repository houses a project undertaken as part of my "**JavaScript React Developer**" training program with [OpenClassrooms](https://openclassrooms.com/). Upon the conclusion of the program on **September 20th, 2023**, the project will no longer be updated or maintained.
+
 ![preview](https://user-images.githubusercontent.com/59840413/219975608-72e540fe-c9ae-4026-bcd8-bb2fceb5f78b.png)
 
 ## Overview
@@ -9,7 +13,7 @@ For this project, I had to build a sport analytics dashboard. The dashboard is a
 ### Useful links
 
 - [Live demo](https://sportsee.alexperronnet.dev/)
-- [Documentation](https://alexperronnet.github.io/openclassrooms-p12-sportsee/)
+- [Documentation](https://alexperronnet.github.io/openclassrooms-12-sportsee/)
 - [Figma mockup](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1)
 - [User stories](https://www.notion.so/openclassrooms/Copy-of-Dev4U-projet-Learn-Home-6686aa4b5f44417881a4884c9af5669e)
 
@@ -31,7 +35,7 @@ For this project, I used the following technologies:
 | [Netlify](https://www.netlify.com/)                    | Deployment         |
 | [JSDoc](https://jsdoc.app/)                            | Documentation      |
 
-> An alternative version of this project using Recharts is available [here](https://github.com/alexperronnet/openclassrooms-p12-sportsee/tree/recharts).
+> An alternative version of this project using [Recharts](https://recharts.org) is available [here](https://github.com/alexperronnet/openclassrooms-12-sportsee/tree/recharts).
 
 ## Local setup
 
@@ -46,13 +50,13 @@ npm install -g pnpm
 1. Clone the repository
 
 ```bash
-git clone https://github.com/alexperronnet/openclassrooms-p12-sportsee.git
+git clone https://github.com/alexperronnet/openclassrooms-12-sportsee.git
 ```
 
 2. Navigate to the project folder
 
 ```bash
-cd openclassrooms-p12-sportsee
+cd openclassrooms-12-sportsee
 ```
 
 3. Install dependencies
@@ -77,31 +81,7 @@ pnpm run build:staging # Use mock api
 
 ### Backend
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/alexperronnet/openclassrooms-p12-sportsee-micro-api.git
-```
-
-2. Navigate to the project folder
-
-```bash
-cd openclassrooms-p12-sportsee-micro-api
-```
-
-3. Install dependencies
-
-```bash
-yarn
-```
-
-4. Start the development server
-
-```bash
-yarn dev
-```
-
-> For more information about the backend, please refer to the [README](https://github.com/alexperronnet/openclassrooms-p12-sportsee-micro-api) of the repository.
+For more information about the backend, please refer to the [README](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) of the official repository.
 
 ## License
 

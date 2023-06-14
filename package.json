@@ -12,8 +12,7 @@
     "lint:fix": "pnpm run lint --fix",
     "format": "prettier --loglevel warn --write .",
     "docs": "jsdoc -c jsdoc.json",
-    "deploy": "bash ./bin/deploy.sh",
-    "deploy:docs": "pnpm run deploy --docs"
+    "deploy-docs": "bash ./bin/deploy-docs.sh"
   },
   "dependencies": {
     "d3": "^7.8.2",
