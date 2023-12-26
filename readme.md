@@ -2,7 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0fa15b5f-c4e1-44df-ab82-e3a416080d08/deploy-status)](https://app.netlify.com/sites/openclassrooms-12-sportsee/deploys)
 
-> **Disclaimer**: This repository houses a project undertaken as part of my "**JavaScript React Developer**" training program with [OpenClassrooms](https://openclassrooms.com/). Upon the conclusion of the program on **September 20th, 2023**, the project will no longer be updated or maintained.
+> [!CAUTION]
+> This repository contains a project completed as part of my training at [OpenClassrooms](https://openclassrooms.com). Having successfully concluded the program, the project is now archived and is no longer maintained. Please note that the repository remains available for reference purposes only; some links or features may not work as expected.
 
 ![preview](https://user-images.githubusercontent.com/59840413/219975608-72e540fe-c9ae-4026-bcd8-bb2fceb5f78b.png)
 
