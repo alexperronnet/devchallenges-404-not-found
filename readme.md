@@ -1,9 +1,7 @@
 # SportSee
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0fa15b5f-c4e1-44df-ab82-e3a416080d08/deploy-status)](https://app.netlify.com/sites/openclassrooms-12-sportsee/deploys)
-
 > [!CAUTION]
-> This repository contains a project completed as part of my training at [OpenClassrooms](https://openclassrooms.com). Having successfully concluded the program, the project is now archived and is no longer maintained. Please note that the repository remains available for reference purposes only; some links or features may not work as expected.
+> This repository hosts a project completed as part of my [OpenClassrooms](https://openclassrooms.com) training program. Having successfully completed the program, the project has now been archived and will no longer be actively maintained. Please be aware that while the repository will remain accessible for reference, some links or features may no longer function as intended.
 
 ![preview](https://user-images.githubusercontent.com/59840413/219975608-72e540fe-c9ae-4026-bcd8-bb2fceb5f78b.png)
 
